@@ -11,7 +11,7 @@ RUN pecl install imagick
 RUN pecl download memcached-3.1.3 && tar -xozvf memcached-3.1.3.tgz && cd memcached-3.1.3 && phpize && ./configure --enable-memcached-igbinary=yes --enable-memcached-msgpack=yes && make && make install
 
 
-FROM php:${PHP_VERSION}-fpm-alpine as php
+FROM php:7.2-fpm-alpine as php
 
 RUN apk update
 RUN apk upgrade

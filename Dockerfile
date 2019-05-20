@@ -1,4 +1,4 @@
-FROM php:7.1-fpm-alpine as php_builder
+FROM php:7.2-fpm-alpine as php_builder
 ADD conf/php.ini /usr/local/etc/php/php.ini
 RUN apk update
 RUN apk upgrade

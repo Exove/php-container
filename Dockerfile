@@ -18,6 +18,12 @@ RUN apk upgrade
 RUN apk del -r --purge gcc musl-dev libc-dev zlib-dev
 RUN apk add --no-cache bash libpng libxml2 icu tidyhtml libmcrypt libmemcached gettext imagemagick
 
+# relase date 2019-05-06, see https://pecl.php.net/package/xdebug \
+# docker tool enables xdebug, thus we just have a configuration file for it in conf.d/20-xdebug.ini
+RUN apk --update --no-cache add autoconf g++ make && \
+    pecl install -f xdebug-2.7.2 && \
+    docker-php-ext-enable xdebug
+
 COPY --from=php_builder /usr/local/lib/php/extensions/no-debug-non-zts-20160303/* /usr/local/lib/php/extensions/no-debug-non-zts-20160303/
 
 ADD conf/php.ini /usr/local/etc/php/php.ini

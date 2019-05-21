@@ -32,6 +32,7 @@ PHP 7.2 based on Alpine Linux with following extensions:
 - Zend OPcache
 - zip
 - zlib
+- Xdebug
 
 Additional extensions build in:
 - gd

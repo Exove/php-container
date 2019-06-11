@@ -1,5 +1,5 @@
 FROM php:7.1-fpm-alpine as php_builder
-ADD conf/php.ini /usr/local/etc/php/php.ini
+COPY conf/php.ini /usr/local/etc/php/php.ini
 RUN apk update
 RUN apk upgrade
 RUN apk add --no-cache bash libpng-dev libxml2-dev icu-dev tidyhtml-dev libmcrypt-dev
@@ -26,5 +26,5 @@ COPY --from=php_builder /usr/local/lib/php/extensions/no-debug-non-zts-20160303/
 
 RUN docker-php-ext-enable xdebug
 
-ADD conf/php.ini /usr/local/etc/php/php.ini
-ADD conf/php.d/ /usr/local/etc/php/conf.d/
+COPY conf/php.ini /usr/local/etc/php/php.ini
+COPY conf/php.d/ /usr/local/etc/php/conf.d/

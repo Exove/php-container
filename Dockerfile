@@ -2,7 +2,8 @@ FROM php:7.2-fpm-alpine as php_builder
 COPY conf/php.ini /usr/local/etc/php/php.ini
 RUN apk update
 RUN apk upgrade
-RUN apk add --no-cache bash libpng-dev libxml2-dev icu-dev tidyhtml-dev
+RUN apk add --no-cache bash libpng-dev jpeg-dev libjpeg-turbo-dev zlib-dev freetype-dev libwebp-dev libxml2-dev icu-dev tidyhtml-dev libmcrypt-dev
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-webp-dir=/usr/include/
 RUN docker-php-ext-install -j2 gd soap intl sockets calendar exif pdo_mysql tidy zip pcntl
 RUN apk add --no-cache build-base autoconf libmemcached libmemcached-dev imagemagick-dev
 RUN pecl install igbinary
@@ -20,7 +21,7 @@ FROM php:7.2-fpm-alpine as php
 RUN apk update
 RUN apk upgrade
 RUN apk del -r --purge gcc musl-dev libc-dev zlib-dev
-RUN apk add --no-cache bash libpng libxml2 icu tidyhtml libmemcached gettext imagemagick
+RUN apk add --no-cache bash libpng jpeg libjpeg libjpeg-turbo zlib freetype libwebp libxml2 icu tidyhtml libmcrypt libmemcached gettext imagemagick
 
 COPY --from=php_builder /usr/local/lib/php/extensions/no-debug-non-zts-20170718/* /usr/local/lib/php/extensions/no-debug-non-zts-20170718/
 

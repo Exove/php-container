@@ -4,7 +4,7 @@ RUN apk update
 RUN apk upgrade
 RUN apk add --no-cache bash libpng-dev jpeg-dev libjpeg-turbo-dev zlib-dev freetype-dev libwebp-dev libxml2-dev icu-dev tidyhtml-dev libmcrypt-dev
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-webp-dir=/usr/include/
-RUN docker-php-ext-install -j2 gd soap intl sockets calendar exif pdo_mysql tidy zip pcntl
+RUN docker-php-ext-install -j2 gd soap intl sockets calendar exif mysqli pdo_mysql tidy zip pcntl
 RUN apk add --no-cache build-base autoconf libmemcached libmemcached-dev imagemagick-dev g++
 RUN pecl install igbinary
 RUN pecl install msgpack

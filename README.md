@@ -41,6 +41,7 @@ Additional extensions build in:
 - sockets
 - calendar
 - exif
+- mysqli
 - pdo_mysql
 - tidy
 - zip

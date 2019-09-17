@@ -1,6 +1,6 @@
 # php-container
 
-PHP 7.1 based on Alpine Linux with following extensions:
+PHP 5.6 based on Alpine Linux with following extensions:
 - calendar
 - curl
 - ctype
@@ -43,7 +43,7 @@ Additional extensions build in:
 - exif
 - mysqli
 - pdo_mysql
-- tidy
 - zip
 - mcrypt
 - pcntl
+- gettext

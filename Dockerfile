@@ -88,3 +88,6 @@ RUN docker-php-ext-enable xdebug
 
 COPY conf/php.ini /usr/local/etc/php/php.ini
 COPY conf/php.d/ /usr/local/etc/php/conf.d/
+
+RUN php -m
+RUN php -v

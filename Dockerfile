@@ -17,7 +17,7 @@ RUN apk add --no-cache \
     gettext-dev \
     libxslt-dev
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-webp-dir=/usr/include/
-RUN docker-php-ext-install -j2 \
+RUN docker-php-ext-install -j$(nproc) \
     gd \
     soap \
     intl \
@@ -51,7 +51,7 @@ RUN pecl download memcached-3.1.3 && \
     tar -xozvf memcached-3.1.3.tgz && \
     cd memcached-3.1.3 && phpize && \
     ./configure --enable-memcached-igbinary=yes --enable-memcached-msgpack=yes && \
-    make && make install
+    make -j$(nproc) && make install
 # relase date 2019-05-06, see https://pecl.php.net/package/xdebug \
 RUN pecl install -f xdebug-2.7.2
 

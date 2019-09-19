@@ -16,7 +16,7 @@ RUN apk add --no-cache \
     gettext-dev \
     libxslt-dev
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install -j2 \
+RUN docker-php-ext-install -j$(nproc) \
     gd \
     soap \
     intl \

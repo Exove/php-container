@@ -36,7 +36,8 @@ RUN docker-php-ext-install -j$(nproc) \
     sysvsem \
     sysvshm \
     wddx \
-    xsl
+    xsl \
+    bcmath
 RUN apk add --no-cache \
     build-base \
     autoconf \

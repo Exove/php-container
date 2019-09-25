@@ -29,6 +29,7 @@ PHP 7.2 based on Alpine Linux with following extensions:
 - xml
 - xmlreader
 - xmlwriter
+- bcmath
 - Zend OPcache
 - zip
 - zlib

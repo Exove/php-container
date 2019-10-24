@@ -1,4 +1,4 @@
-FROM php:7.2-fpm-alpine as php_builder
+FROM php:7.3-fpm-alpine as php_builder
 COPY conf/php.ini /usr/local/etc/php/php.ini
 RUN apk update
 RUN apk upgrade
@@ -15,7 +15,8 @@ RUN apk add --no-cache \
     libmcrypt-dev \
     bzip2-dev \
     gettext-dev \
-    libxslt-dev
+    libxslt-dev \
+    libzip-dev
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-webp-dir=/usr/include/
 RUN docker-php-ext-install -j$(nproc) \
     gd \
@@ -57,7 +58,7 @@ RUN pecl download memcached-3.1.3 && \
 RUN pecl install -f xdebug-2.7.2
 
 
-FROM php:7.2-fpm-alpine as php
+FROM php:7.3-fpm-alpine as php
 
 RUN apk update
 RUN apk upgrade
@@ -78,9 +79,10 @@ RUN apk add --no-cache \
     gettext \
     imagemagick \
     libintl \
-    libxslt
+    libxslt \
+    libzip
 
-COPY --from=php_builder /usr/local/lib/php/extensions/no-debug-non-zts-20170718/* /usr/local/lib/php/extensions/no-debug-non-zts-20170718/
+COPY --from=php_builder /usr/local/lib/php/extensions/no-debug-non-zts-20180731/* /usr/local/lib/php/extensions/no-debug-non-zts-20180731/
 
 # docker tool enables xdebug, thus we just have a configuration file for it in conf.d/20-xdebug.ini
 RUN docker-php-ext-enable xdebug

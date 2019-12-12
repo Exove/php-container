@@ -1,6 +1,6 @@
 # php-container
 
-PHP 7.2 based on Alpine Linux with following extensions:
+PHP 7.3 based on Alpine Linux with following extensions:
 - calendar
 - curl
 - ctype

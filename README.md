@@ -1,6 +1,7 @@
 # php-container
 
 PHP 7.3 based on Alpine Linux with following extensions:
+
 - calendar
 - curl
 - ctype
@@ -36,6 +37,7 @@ PHP 7.3 based on Alpine Linux with following extensions:
 - Xdebug
 
 Additional extensions build in:
+
 - gd
 - soap
 - intl
@@ -48,3 +50,4 @@ Additional extensions build in:
 - zip
 - sodium
 - pcntl
+- gmp

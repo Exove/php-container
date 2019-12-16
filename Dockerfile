@@ -16,7 +16,8 @@ RUN apk add --no-cache \
     bzip2-dev \
     gettext-dev \
     libxslt-dev \
-    libzip-dev
+    libzip-dev \
+    gmp-dev
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-webp-dir=/usr/include/
 RUN docker-php-ext-install -j$(nproc) \
     gd \
@@ -38,7 +39,8 @@ RUN docker-php-ext-install -j$(nproc) \
     sysvshm \
     wddx \
     xsl \
-    bcmath
+    bcmath \
+    gmp
 RUN apk add --no-cache \
     build-base \
     autoconf \

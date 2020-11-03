@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-alpine as php_builder
+FROM php:7.4-fpm-alpine as php_builder
 COPY conf/php.ini /usr/local/etc/php/php.ini
 RUN apk update
 RUN apk upgrade
@@ -58,7 +58,7 @@ RUN pecl download memcached-3.1.3 && \
 RUN pecl install -f xdebug-2.7.2
 
 
-FROM php:7.3-fpm-alpine as php
+FROM php:7.4-fpm-alpine as php
 
 RUN apk update
 RUN apk upgrade

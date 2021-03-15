@@ -33,7 +33,7 @@ PHP 7.4 based on Alpine Linux with following extensions:
 - Zend OPcache
 - zip
 - zlib
-- Xdebug
+- Xdebug (3.x)
 
 Additional extensions build in:
 - gd
@@ -46,5 +46,12 @@ Additional extensions build in:
 - pdo_mysql
 - tidy
 - zip
-- sodium
 - pcntl
+- bz2
+- gettext
+- hmop
+- sysvmsg
+- sysvsem
+- sysvshm
+- xsl
+- bcmath

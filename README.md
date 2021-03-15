@@ -33,7 +33,7 @@ PHP 7.3 based on Alpine Linux with following extensions:
 - Zend OPcache
 - zip
 - zlib
-- Xdebug
+- Xdebug (3.x)
 
 Additional extensions build in:
 - gd

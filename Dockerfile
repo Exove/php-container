@@ -55,6 +55,9 @@ RUN pecl download memcached-3.1.3 && \
     make -j$(nproc) && make install
 # relase date 2019-05-06, see https://pecl.php.net/package/xdebug \
 RUN pecl install -f xdebug-3.0.3
+# Build this file with the following shell command to expose the built folder name.
+# $ docker build --progress plain . --no-cache
+RUN ["/bin/bash", "-c", "set -o pipefail && ls -lha /usr/local/lib/php/extensions/"]
 
 
 FROM php:7.4-fpm-alpine as php
@@ -81,7 +84,7 @@ RUN apk add --no-cache \
     libxslt \
     libzip
 
-COPY --from=php_builder /usr/local/lib/php/extensions/no-debug-non-zts-20180731/* /usr/local/lib/php/extensions/no-debug-non-zts-20180731/
+COPY --from=php_builder /usr/local/lib/php/extensions/no-debug-non-zts-20190902/* /usr/local/lib/php/extensions/no-debug-non-zts-20190902/
 
 # docker tool enables xdebug, thus we just have a configuration file for it in conf.d/20-xdebug.ini
 RUN docker-php-ext-enable xdebug

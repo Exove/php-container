@@ -36,7 +36,6 @@ RUN docker-php-ext-install -j$(nproc) \
     sysvmsg \
     sysvsem \
     sysvshm \
-    wddx \
     xsl \
     bcmath
 RUN apk add --no-cache \

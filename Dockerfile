@@ -55,7 +55,7 @@ RUN pecl download memcached-3.1.3 && \
     ./configure --enable-memcached-igbinary=yes --enable-memcached-msgpack=yes && \
     make -j$(nproc) && make install
 # relase date 2019-05-06, see https://pecl.php.net/package/xdebug \
-RUN pecl install -f xdebug-2.7.2
+RUN pecl install -f xdebug-3.0.3
 
 
 FROM php:7.4-fpm-alpine as php
